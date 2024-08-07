@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql
+    restart: always
+    platform: linux/amd64
+    volumes:
+      - desert-db:/var/lib/mysql
+      - ./sql:/sql
+    environment:
+      MYSQL_DATABASE: desert_development
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+volumes:
+  desert-db:
